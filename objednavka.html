@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objednávka</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <fieldset>
+        <legend>Objednávka krmiva</legend>
+        <fieldset>
+            <legend>Výběr krmiva</legend>
+            <select name="krmivo" id="krmivo" onChange="zapisZakladniCenu();zapisVyslednouCenu();">
+                <option class="krmivo" value="150">Psí žrádlo 150 Kč/kg</option>
+                <option class="krmivo" value="120">Kočičí žrádlo 120 Kč/kg</option>
+                <option class="krmivo" value="50">Žrádlo pro rybičky 50 Kč/kg</option>
+                <option class="krmivo" value="800">Žrádlo pro tygra 800 Kč/kg</option>
+            </select>
+            Kg krmiva:
+            <input type="text" id="kg" name="kg" size="15" onChange="zapisZakladniCenu();zapisVyslednouCenu();">
+            Celková cena:
+            <input type="text" id="zakladni" name="zakladni" size="15" disabled>
+        </fieldset>
+        <fieldset>
+            <legend>Vlastnosti krmiva</legend>
+            <input type="checkbox" name="vlastnosti" id="bio" onChange="zapisVyslednouCenu();">
+            <label for="bio">Bio kvalita</label><br/>
+            <input type="checkbox" name="vlastnosti" id="premium" onChange="zapisVyslednouCenu();">
+            <label for="premium">Extra premium kvalita</label><br/>
+            <input type="checkbox" name="vlastnosti" id="nekvalita" onChange="zapisVyslednouCenu();">
+            <label for="nekvalita">Extra nekvalita pro chudé</label><br/>
+            <input type="checkbox" name="vlastnosti" id="darek" onChange="zapisVyslednouCenu();">
+            <label for="darek">Dárkové balení</label><br/>
+        </fieldset>
+        <fieldset>
+            <legend>Doprava</legend>
+            <input type="radio" name="doprava" id="osobne" onChange="zapisVyslednouCenu();">
+            <label for="osobne">Osobní odběr</label><br/>
+            <input type="radio" name="doprava" id="kuryr" onChange="zapisVyslednouCenu();">
+            <label for="kuryr">Firemní kurýr</label><br/>
+            <input type="radio" name="doprava" id="posta" onChange="zapisVyslednouCenu();">
+            <label for="posta">Česká pošta</label><br/>
+        </fieldset>
+        <fieldset>
+            <legend>Cena celkem</legend>
+            CELKOVÁ CENA<br/>
+            <input type="text" name="celkem" id="celkem" disabled><br/><br/>
+            K útratě:<br/>
+            <input type="text" name="kUtrate" id="kUtrate"><br/>
+            <input type="button" name="spocitej" id="spocitej" value="Spočítej" >
+            <!-- onClick="spocitej()" -->
+            <p id="vyjde"></p>
+        </fieldset><br/>
+        Zadejte svůj e-mail<br/>
+        Jméno: <input type="text" name="email" id="email" placeholder="Zadejte své jméno"><span id="domena">@gmail.com</span>
+        <!--onkeyup="kontrola(this)" -->
+    </fieldset>
+</body>
+</html>
